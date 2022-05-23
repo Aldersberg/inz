@@ -18,7 +18,6 @@ public class chest : Collision
         {
             //Debug.Log("chest collect");
             onChestInteraction();
-            //coll.enabled = false;
         } 
     }
     void onChestInteraction()
