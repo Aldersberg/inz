@@ -34,7 +34,7 @@ public class floatingTextManager : MonoBehaviour
             floatingShade.text.text = text;
             floatingShade.text.fontSize = fontSize;
             floatingShade.text.color = Color.black;
-            Vector3 shadingPos = new Vector3(position.x + 0.005f, position.y + 0.14f, position.z);
+            Vector3 shadingPos = new Vector3(position.x + 0.003f, position.y + 0.14f, position.z);
             floatingShade.go.transform.position = Camera.main.WorldToScreenPoint(shadingPos);
             floatingShade.motion = motion;
             floatingShade.duration = duration;

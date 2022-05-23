@@ -5,12 +5,13 @@ using UnityEngine;
 public class chest : Collision
 {
     public Sprite collected;
-    private string pName; //player name
+    public Sprite[] weaponDrops;
+    public Sprite[] weapontops;//top parts of weapons
+    public Sprite[] potionDrops;
 
     protected override void Start()
     {
         base.Start();
-        pName = gameManager.gmInstance.playerName;
     }
     protected override void onCollision(Collider2D coll)    
     {   //check for player and input
@@ -24,8 +25,7 @@ public class chest : Collision
     {
         int gold = Random.Range(1, 100);
         gameManager.gmInstance.gold += gold;
-
-        
+        dropItem();
         //Debug.Log("onchest: "+this+":"+transform.name);
         gameManager.gmInstance.showText("+"+gold+" gold" , 25 , Color.yellow, transform.position, Vector3.up * 25, 1.0f,true );
         SpriteRenderer s = GetComponent<SpriteRenderer>();
@@ -34,4 +34,14 @@ public class chest : Collision
 
     }
 
+    private void dropItem()
+    {
+        int item = Random.Range(1, 100);
+        if (item > 33)
+        {
+
+        }
+
+
+    }
 }

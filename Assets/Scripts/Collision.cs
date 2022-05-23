@@ -7,13 +7,14 @@ public class Collision : MonoBehaviour
     public ContactFilter2D filter;
     protected BoxCollider2D boxCollider;
     private Collider2D[] collisions = new Collider2D[40];
+    protected string pName;
     // Start is called before the first frame update
     //Console.WriteLine("Area of Circle   = {0:F2}", c.Area());
     //Console.WriteLine($"x = {dpoint.x}, y = {dpoint.y}");
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-
+        pName = gameManager.gmInstance.playerName;
     }
 
     // Update is called once per frame

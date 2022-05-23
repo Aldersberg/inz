@@ -8,8 +8,8 @@ public class Player : Move
     protected override void Start()
     {
         base.Start();
-        healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
-        
+        updateHp();
+
     }
     private void Update()
     {
@@ -21,7 +21,13 @@ public class Player : Move
     protected override void receiveDamage(damage dmg)
     {
         base.receiveDamage(dmg);
+        updateHp();
 
+
+    }
+
+    public void updateHp()
+    {
         healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
     }
 }

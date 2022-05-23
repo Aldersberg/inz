@@ -8,16 +8,7 @@ public class healthBar : MonoBehaviour
 
     private void Awake()
     {
-        
-        if (healthBar.hpBar != null)
-        {
-            Debug.Log("destroyed");
-            Destroy(gameObject);
-            return;
-        }
-        Debug.Log("awake");
         hpBar = this;
-        DontDestroyOnLoad(gameObject);
     }
     public void updateHealthOnDamage(float hp, float maxHp)
     {
