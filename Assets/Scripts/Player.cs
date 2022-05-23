@@ -28,6 +28,10 @@ public class Player : Move
 
     public void updateHp()
     {
+        if (hp < 0)
+            hp = 0;
+        if (hp > maxHp)
+            hp = maxHp;
         healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
     }
 }

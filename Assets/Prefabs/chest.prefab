@@ -139,3 +139,45 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collected: {fileID: -150518975, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  weaponDrops:
+  - {fileID: 1341315101, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1010087505, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1326413114, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -2071423653, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 278993695, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1709377098, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -151448311, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1518065945, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -68164781, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1906332219, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1772435858, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -351375954, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1234876784, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -910833959, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -938193026, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 419341838, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 217144107, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  weapontops:
+  - {fileID: 2079975814, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1595258251, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1680426526, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1181293634, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -926839648, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1424869081, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 2036261686, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1753047715, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 818369197, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1642865874, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1039615972, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -645766566, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1518981764, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -450986038, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 258676530, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1875976570, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -647807481, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  potionDrops:
+  - {fileID: -1014702526, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: -1404331871, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 1157867199, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 538788484, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  hpPotionPrefab: {fileID: 6969636777415176779, guid: cba55088027b9f142918539363a6ea0f, type: 3}

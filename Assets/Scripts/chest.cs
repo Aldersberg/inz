@@ -8,6 +8,7 @@ public class chest : Collision
     public Sprite[] weaponDrops;
     public Sprite[] weapontops;//top parts of weapons
     public Sprite[] potionDrops;
+    public GameObject hpPotionPrefab;
 
     protected override void Start()
     {
@@ -25,6 +26,7 @@ public class chest : Collision
     {
         int gold = Random.Range(1, 100);
         gameManager.gmInstance.gold += gold;
+        Debug.Log("chest: "+transform.position.x);
         dropItem();
         //Debug.Log("onchest: "+this+":"+transform.name);
         gameManager.gmInstance.showText("+"+gold+" gold" , 25 , Color.yellow, transform.position, Vector3.up * 25, 1.0f,true );
@@ -36,11 +38,19 @@ public class chest : Collision
 
     private void dropItem()
     {
-        int item = Random.Range(1, 100);
-        if (item > 33)
-        {
 
-        }
+        hpPotion hpPot = new hpPotion();
+        hpPot.go = Instantiate(hpPotionPrefab);
+        //fix sizes
+        //hpPot.sizes = hpPotionPrefab.sizes
+        hpPot.setup();
+        hpPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
+        //Debug.Log(transform.position.x);
+        //int item = Random.Range(1, 100);
+        //if (item > 33)
+        //{
+        //
+        //}
 
 
     }

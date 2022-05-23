@@ -138,3 +138,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  hpRecovery: 3
+  go: {fileID: 0}
+  sizes:
+  - {fileID: -1014702526, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
+  - {fileID: 789348647, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
