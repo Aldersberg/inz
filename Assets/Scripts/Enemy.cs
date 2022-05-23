@@ -16,8 +16,8 @@ public class Enemy : Move
     private BoxCollider2D hitbox;
     private Collider2D[] collisions = new Collider2D[10];
     private ContactFilter2D filter;
+    private string pName;
 
-    
 
     protected override void Start()
     {
@@ -26,6 +26,7 @@ public class Enemy : Move
         hitbox = GetComponent<BoxCollider2D>();
         xSpeed = 0.3f;
         ySpeed = xSpeed;
+        pName = gameManager.gmInstance.playerName;
     }
 
     private void Update()
@@ -40,7 +41,7 @@ public class Enemy : Move
 
         if (chasing && !collidingWithPlayer)
         {   //move towards player but stop upon collision
-            Debug.Log("chasing");
+            //Debug.Log("chasing");
             updateMovement((playerTransform.position-transform.position).normalized);
         }
 
@@ -51,7 +52,7 @@ public class Enemy : Move
             if (collisions[i] == null)
                 continue;
             //Debug.Log(collisions[i].name);
-            if (collisions[i].name == "wizard_0")
+            if (collisions[i].name == pName)
                 collidingWithPlayer = true;
 
             collisions[i] = null;

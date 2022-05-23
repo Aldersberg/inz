@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Player : Move
 {
+    
+    protected override void Start()
+    {
+        base.Start();
+        healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
+        
+    }
     private void Update()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -11,4 +18,10 @@ public class Player : Move
         updateMovement(new Vector3(x, y, 0));
     }
 
+    protected override void receiveDamage(damage dmg)
+    {
+        base.receiveDamage(dmg);
+
+        healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
+    }
 }
