@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class camPos : MonoBehaviour
 {
-    public Transform camPosition;
+    Transform camPosition;
     private void Start()
     {
-        Camera.main.orthographicSize = 1.4f;
+        Camera.main.orthographicSize = 1;
+        camPosition = gameManager.gmInstance.player.transform;
     }
     private void Update()
     {

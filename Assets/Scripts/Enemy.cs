@@ -18,15 +18,18 @@ public class Enemy : Move
     private ContactFilter2D filter;
     private string pName;
 
-
-    protected override void Start()
+    protected void Awake()
     {
-        base.Start();
         playerTransform = gameManager.gmInstance.player.transform;
         hitbox = GetComponent<BoxCollider2D>();
         xSpeed = 0.3f;
         ySpeed = xSpeed;
         pName = gameManager.gmInstance.playerName;
+    }
+    protected override void Start()
+    {
+        base.Start();
+        
     }
 
     private void Update()

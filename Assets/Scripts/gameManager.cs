@@ -23,6 +23,8 @@ public class gameManager : MonoBehaviour
         gmInstance = this;
         SceneManager.sceneLoaded += LoadState;
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(player);
+        DontDestroyOnLoad(floatingTextManager);
     }
     
 
