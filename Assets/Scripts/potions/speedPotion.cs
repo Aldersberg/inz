@@ -7,7 +7,7 @@ public class speedPotion : Collision
     [SerializeField]
     float speedUp = 3;
     //base speed=0.5f
-    float duration=5;
+    float duration=4;
     float startTime=0;
     bool active = false;
     public GameObject go;
@@ -27,16 +27,22 @@ public class speedPotion : Collision
 
         spriteRenderer.sprite = sizes[size];
         if (size == 0)
+        {
             speedUp = 0.25f;
+            duration = 4;
+        }
         else
+        {
             speedUp = 0.5f;
+            duration = 3;
+        }
+        
     }
     protected override void Update()
     {
         base.Update();
         if (active)
         {
-            Debug.Log("speedpot");
             if (Time.time - startTime > duration)
             {
                 gameManager.gmInstance.player.xSpeed -= speedUp;
