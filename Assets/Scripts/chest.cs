@@ -9,7 +9,7 @@ public class chest : Collision
     public Sprite[] weapontops;//top parts of weapons
     public Sprite[] potionDrops;
     public GameObject hpPotionPrefab;
-
+    public GameObject speedPotionPrefab;
     protected override void Start()
     {
         base.Start();
@@ -26,9 +26,8 @@ public class chest : Collision
     {
         int gold = Random.Range(1, 100);
         gameManager.gmInstance.gold += gold;
-        Debug.Log("chest: "+transform.position.x);
+        
         dropItem();
-        //Debug.Log("onchest: "+this+":"+transform.name);
         gameManager.gmInstance.showText("+"+gold+" gold" , 25 , Color.yellow, transform.position, Vector3.up * 25, 1.0f,true );
         SpriteRenderer s = GetComponent<SpriteRenderer>();
         s.sprite = collected;
@@ -39,19 +38,33 @@ public class chest : Collision
     private void dropItem()
     {
 
+        int item = Random.Range(1, 100);
+        if (item > 33)
+        {
+            spawnHpPot();
+
+        }
+        
+        else
+            spawnSpeedPot();
+        //Debug.Log(item);
+    }
+
+    private void spawnHpPot()
+    {
         hpPotion hpPot = new hpPotion();
         hpPot.go = Instantiate(hpPotionPrefab);
-        //fix sizes
-        //hpPot.sizes = hpPotionPrefab.sizes
         hpPot.setup();
+        //one square = 0.16f
         hpPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
-        //Debug.Log(transform.position.x);
-        //int item = Random.Range(1, 100);
-        //if (item > 33)
-        //{
-        //
-        //}
-
-
+    }
+    private void spawnSpeedPot()
+    {
+        speedPotion speedPot = new speedPotion();
+        speedPot.go = Instantiate(hpPotionPrefab);
+        speedPot.setup();
+        //one square = 0.16f
+        speedPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
+       
     }
 }

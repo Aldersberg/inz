@@ -16,11 +16,12 @@ public class hpPotion : Collision
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //visibility on the floor
         spriteRenderer.sortingLayerName = "Floor";
         spriteRenderer.sortingOrder = 1;
         
         size = Random.Range(0, 2);
-        Debug.Log(size);
+        
         spriteRenderer.sprite = sizes[size];
         if (size == 0)
             hpRecovery = 5;
@@ -43,6 +44,7 @@ public class hpPotion : Collision
         {
             gameManager.gmInstance.player.hp += hpRecovery;
             gameManager.gmInstance.player.updateHp();
+            gameManager.gmInstance.showText("+" + hpRecovery, 22, Color.green, transform.position, Vector3.up * 10, 0.3f, true);
             Destroy(gameObject);
         }
     }

@@ -7,8 +7,8 @@ public class Move : Warrior
     protected BoxCollider2D boxCollider;
     protected Vector3 moveVector;
     protected RaycastHit2D collision;
-    protected float ySpeed = 0.5f;
-    protected float xSpeed = 0.5f;
+    public float ySpeed = 0.5f;
+    public float xSpeed = 0.5f;
 
     protected virtual void Start()
     {
