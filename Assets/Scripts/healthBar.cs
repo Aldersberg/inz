@@ -10,6 +10,7 @@ public class healthBar : MonoBehaviour
     {
         hpBar = this;
     }
+    
     public void updateHealthOnDamage(float hp, float maxHp)
     {
        //Debug.Log((player.hp / player.maxHp));

@@ -32,6 +32,7 @@ public class chest : Collision
         SpriteRenderer s = GetComponent<SpriteRenderer>();
         s.sprite = collected;
         boxCollider.enabled = false;
+        gameManager.gmInstance.SaveState();
 
     }
 

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class gameManager : MonoBehaviour
 {
     public static gameManager gmInstance;
+    public Player player;
+    public string playerName;
     private void Awake()
     {
         if (player != null)
@@ -30,8 +32,7 @@ public class gameManager : MonoBehaviour
 
     public int gold;
     public int exp;
-    public Player player;
-    public string playerName;
+    
     public void SaveState()
     {
         string save = "";
@@ -48,6 +49,8 @@ public class gameManager : MonoBehaviour
         gold = int.Parse(saveData[0]);
         exp = int.Parse(saveData[1]);
         Debug.Log("loaded");
+        player.transform.position = GameObject.Find("spawnPoint").transform.position;
+        player.updateHp();
     }
     public floatingTextManager floatingTextManager;
     public void showText(string text, int fontSize, Color txtColor, Vector3 position, Vector3 motion, float duration, bool shading)

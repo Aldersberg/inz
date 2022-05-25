@@ -8,7 +8,7 @@ public class portal : Collision
     public string sceneName;
     protected override void onCollision(Collider2D coll)
     {
-        if(coll.name == "wizard_0")
+        if(coll.name == gameManager.gmInstance.playerName)
         {
 
             gameManager.gmInstance.SaveState();
