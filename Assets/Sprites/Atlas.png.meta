@@ -5281,7 +5281,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Atlas_46: -450986038
-      Atlas_170: -2064903528
       Atlas_229: 843973546
       Atlas_18: 2135616944
       Atlas_33: 125972470
@@ -5304,8 +5303,8 @@ TextureImporter:
       Atlas_154: 815633837
       Atlas_219: -419510895
       Atlas_222: 197483058
-      Atlas_233: -519463311
       Atlas_4: 838100218
+      Atlas_233: -519463311
       Atlas_36: -2093127600
       Atlas_198: -1281616447
       Atlas_45: 1518981764
@@ -5334,10 +5333,10 @@ TextureImporter:
       Atlas_78: -1540437313
       Atlas_102: -908164662
       Atlas_240: 1851215041
-      Atlas_241: -1406732316
       Atlas_144: -829214732
-      Atlas_44: -645766566
       Atlas_156: 16073787
+      Atlas_44: -645766566
+      Atlas_241: -1406732316
       Atlas_164: 1125331542
       Atlas_113: -1869023413
       Atlas_15: 1637647608
@@ -5385,13 +5384,11 @@ TextureImporter:
       Atlas_171: 354282124
       Atlas_0: 284087693
       Atlas_181: -64375032
-      Atlas_28: -2071423653
-      Atlas_136: 951132150
       Atlas_31: 1522527803
-      Atlas_17: 254815812
-      Atlas_151: 1664723360
-      Atlas_230: 561342110
       Atlas_22: 2015114626
+      Atlas_17: 254815812
+      Atlas_230: 561342110
+      Atlas_151: 1664723360
       Atlas_183: 18521140
       Atlas_138: 698578455
       Atlas_61: -1234876784
@@ -5518,13 +5515,12 @@ TextureImporter:
       Atlas_227: -1519158136
       Atlas_57: -68164781
       Atlas_67: 47118209
-      Atlas_128: -1219396949
-      Atlas_9: 2079975814
-      Atlas_175: 55271374
-      Atlas_139: -321266158
-      Atlas_237: 1255212267
       Atlas_221: -2028313872
       Atlas_179: 1251527016
+      Atlas_175: 55271374
+      Atlas_139: -321266158
+      Atlas_128: -1219396949
+      Atlas_170: -2064903528
       Atlas_72: -1875976570
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -15,7 +15,7 @@ public class weaponImage : MonoBehaviour
     }
     protected virtual void Start()
     {
-        
+        weaponObj = GameObject.Find("weapon");
         weaponSprite = weaponObj.GetComponentsInChildren<SpriteRenderer>();
         Debug.Log(weaponSprite.Length);
         image[0].sprite = weaponSprite[0].sprite;
