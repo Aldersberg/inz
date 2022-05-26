@@ -10,6 +10,7 @@ public class chest : Collision
     public Sprite[] potionDrops;
     public GameObject hpPotionPrefab;
     public GameObject speedPotionPrefab;
+    public GameObject[] pfweaponDrops;
     protected override void Start()
     {
         base.Start();
@@ -38,7 +39,7 @@ public class chest : Collision
 
     private void dropItem()
     {
-
+        spawnWeapon();
         int item = Random.Range(1, 100);
         if (item > 33)
         {
@@ -67,5 +68,11 @@ public class chest : Collision
         //one square = 0.16f
         speedPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
        
+    }
+    private void spawnWeapon()
+    {
+        Instantiate(pfweaponDrops[0], new Vector3(transform.position.x, transform.position.y + 0.2f, 1),Quaternion.identity);
+
+        //drop only a sprite and generate the rest in eq?
     }
 }

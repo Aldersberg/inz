@@ -19,7 +19,7 @@ public class hpPotion : Collision
         //visibility on the floor
         spriteRenderer.sortingLayerName = "Floor";
         spriteRenderer.sortingOrder = 1;
-        
+        Debug.Log("in start hppot");
         size = Random.Range(0, 2);
         
         spriteRenderer.sprite = sizes[size];
@@ -33,7 +33,7 @@ public class hpPotion : Collision
         go.SetActive(true);
         //sizes = go.GetComponent<Sprite[]>();
         //
-        //Debug.Log(go);
+        //
         //Debug.Log(sizes);
         //go.GetComponent<SpriteRenderer>().sprite = sizes[1];
         

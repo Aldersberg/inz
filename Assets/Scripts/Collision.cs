@@ -13,6 +13,7 @@ public class Collision : MonoBehaviour
     //Console.WriteLine($"x = {dpoint.x}, y = {dpoint.y}");
     protected virtual void Start()
     {
+        Debug.Log(this.name);
         boxCollider = GetComponent<BoxCollider2D>();
         pName = gameManager.gmInstance.playerName;
     }
@@ -20,12 +21,14 @@ public class Collision : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (boxCollider==null)
+            boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.OverlapCollider(filter, collisions);
         for (int i = 0; i < collisions.Length; i++)
         {
             if (collisions[i] == null)
                 continue;
-            //Debug.Log(collisions[i].name);
+            
             onCollision(collisions[i]);
             
             collisions[i] = null;

@@ -30,7 +30,7 @@ public class weaponImage : MonoBehaviour
     private void OnEnable()
     {
         
-        
-        //
+            
+        //some weapon template
     }
 }
