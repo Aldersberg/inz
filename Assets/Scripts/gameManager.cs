@@ -8,8 +8,10 @@ public class gameManager : MonoBehaviour
     public static gameManager gmInstance;
     public Player player;
     public string playerName;
+    public List<GameObject> inventory;
     private void Awake()
     {
+        
         if (player != null)
         {
             playerName = player.transform.name;
@@ -21,6 +23,7 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
         Debug.Log("awake");
         gmInstance = this;
         SceneManager.sceneLoaded += LoadState;
@@ -28,7 +31,10 @@ public class gameManager : MonoBehaviour
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(floatingTextManager);
     }
-    
+    private void Start()
+    {
+        //playerInventory playerInventory = new playerInventory();
+    }
 
     public int gold;
     public int exp;
@@ -36,9 +42,18 @@ public class gameManager : MonoBehaviour
     public void SaveState()
     {
         string save = "";
+        
         save += gold.ToString() + "|";
-        save += exp.ToString();
+        save += exp.ToString()+"|";
+        foreach(GameObject go in inventory)
+        {
+            save += go.name + "|";
+            save += go.GetComponent<weapon>().damage.ToString() + "|";
+            save += go.GetComponent<weapon>().knockback.ToString() + "|";
+        }
+        //gold,exp|prefab name, damage, knockback
         PlayerPrefs.SetString("saveState", save);
+        inventory.Clear();
         Debug.Log("saved");
     }
     public void LoadState(Scene s, LoadSceneMode lsm)
@@ -48,9 +63,25 @@ public class gameManager : MonoBehaviour
         string[] saveData = PlayerPrefs.GetString("saveState").Split('|');
         gold = int.Parse(saveData[0]);
         exp = int.Parse(saveData[1]);
+        for (int i = 2; i < saveData.Length-3; i+=3)
+        {
+            string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`')+1);
+            Debug.Log(tmpName);
+            GameObject tmpWeapon = (GameObject)Resources.Load("Prefabs/"+tmpName);
+            tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
+            tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 1]);
+            inventory.Add(tmpWeapon);
+        }
         Debug.Log("loaded");
         player.transform.position = GameObject.Find("spawnPoint").transform.position;
         player.updateHp();
+        //if (playerInventory.inventory.Count > 0) {
+        //    foreach (GameObject a in playerInventory.inventory)
+        //    {
+        //        Debug.Log(a);
+        //    }
+        //}
+        
     }
     public floatingTextManager floatingTextManager;
     public void showText(string text, int fontSize, Color txtColor, Vector3 position, Vector3 motion, float duration, bool shading)

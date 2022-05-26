@@ -23,7 +23,7 @@ public class weapon : Collision
         animator = GetComponent<Animator>();
         if (transform.parent != null)
         {
-            Debug.Log(this.name + ":" + transform.parent.name);
+            //Debug.Log(this.name + ":" + transform.parent.name);
             parentName = transform.parent.name;
         }
         if (transform.parent == null)
@@ -82,6 +82,10 @@ public class weapon : Collision
         currentWeapon.GetComponent<weapon>().damage = this.damage;
         currentWeapon.GetComponent<weapon>().knockback = this.knockback;
         currentWeapon.GetComponent<weapon>().boxCollider = this.boxCollider;
+        
+        gameManager.gmInstance.inventory.Add(gameObject);
+        gameManager.gmInstance.SaveState();
+
         gameObject.SetActive(false);
     }
     private void swing()

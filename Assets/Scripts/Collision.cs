@@ -13,7 +13,7 @@ public class Collision : MonoBehaviour
     //Console.WriteLine($"x = {dpoint.x}, y = {dpoint.y}");
     protected virtual void Start()
     {
-        Debug.Log(this.name);
+        //Debug.Log(this.name);
         boxCollider = GetComponent<BoxCollider2D>();
         pName = gameManager.gmInstance.playerName;
     }
@@ -23,6 +23,7 @@ public class Collision : MonoBehaviour
     {
         if (boxCollider==null)
             boxCollider = GetComponent<BoxCollider2D>();
+
         boxCollider.OverlapCollider(filter, collisions);
         for (int i = 0; i < collisions.Length; i++)
         {
