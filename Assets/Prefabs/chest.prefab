@@ -182,3 +182,5 @@ MonoBehaviour:
   - {fileID: 538788484, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
   hpPotionPrefab: {fileID: 6969636777415176779, guid: cba55088027b9f142918539363a6ea0f, type: 3}
   speedPotionPrefab: {fileID: 3941741580332696383, guid: 5d120d76927e02a4f9dd1884354e9bf3, type: 3}
+  pfweaponDrops:
+  - {fileID: 7149388324713582539, guid: 8598d1309495d3d4cb2628059e9eb118, type: 3}

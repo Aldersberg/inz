@@ -45,12 +45,12 @@ TagManager:
   - name: Floor
     uniqueID: 2994842717
     locked: 0
-  - name: Wall
-    uniqueID: 2418267677
-    locked: 0
   - name: Weapon
     uniqueID: 687709113
     locked: 0
   - name: Character
     uniqueID: 3457227285
+    locked: 0
+  - name: Wall
+    uniqueID: 2418267677
     locked: 0

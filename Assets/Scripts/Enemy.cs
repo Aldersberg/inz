@@ -20,14 +20,15 @@ public class Enemy : Move
 
     protected void Awake()
     {
+        
+    }
+    protected override void Start()
+    {
         playerTransform = gameManager.gmInstance.player.transform;
         hitbox = GetComponent<BoxCollider2D>();
         xSpeed = 0.3f;
         ySpeed = xSpeed;
         pName = gameManager.gmInstance.playerName;
-    }
-    protected override void Start()
-    {
         base.Start();
         
     }
