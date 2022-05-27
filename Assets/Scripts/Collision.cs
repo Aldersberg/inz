@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
     public ContactFilter2D filter;
-    protected BoxCollider2D boxCollider;
+    public BoxCollider2D boxCollider;
     private Collider2D[] collisions = new Collider2D[40];
     protected string pName;
     // Start is called before the first frame update
