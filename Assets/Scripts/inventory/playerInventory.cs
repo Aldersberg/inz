@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class playerInventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class playerInventory : MonoBehaviour
 {
     string pName;
     Image[] image;
@@ -33,34 +33,38 @@ public class playerInventory : MonoBehaviour, IPointerEnterHandler, IPointerExit
     }
     private void OnEnable()
     { 
-        float x = 0;
-        float offset = 388;
-        float y = -32+offset;
+        float x = 20;
+        float offsetY = 388;
+        float y = -32+offsetY;
         int i = 0;
         foreach(GameObject go in gameManager.gmInstance.inventory)
         {
             
-            GameObject spriteObj = (GameObject)Instantiate(Resources.Load("Prefabs/inventoryItemSprite"));
+            GameObject spriteObj = (GameObject)Instantiate(Resources.Load("Prefabs/inventoryItemSpriteWB"));
             spriteObj.transform.SetParent(transform);
-            RectTransform[] tmp = spriteObj.GetComponentsInChildren<RectTransform>(true);
-            //spriteObj.transform.localPosition = Vector3.zero;
-            
+            spriteObj.gameObject.SetActive(true);
+            //RectTransform[] tmp = spriteObj.GetComponentsInChildren<RectTransform>(true);
+
+
             image = spriteObj.GetComponentsInChildren<Image>(true);
-            image[0].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[0].sprite;
-            image[1].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[1].sprite;
-            Debug.Log(x);
+            //Debug.Log(image.Length);
+            image[image.Length-2].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[0].sprite;
+            image[image.Length-1].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[1].sprite;
+            
+            spriteObj.GetComponent<hoverDescription>().invId = i;
+            //spriteObj.GetComponent<hoverDescription>().description = i;
             //tmp[0].transform.position = Vector3.zero ;
-            if (x < 400)
+            if (x < 420)
             {
 
-                Debug.Log(i +x+ "<400");
+                //Debug.Log(i +x+ "<400");
                 spriteObj.transform.localPosition = new Vector3(x, y, 1);// Camera.main.ScreenToWorldPoint;
             }
-            if (x >= 400)
+            if (x >= 420)
             {
-                Debug.Log(i+x+">400");
-                x = 0;
-                y -= 100;
+                //Debug.Log(i+x+">400");
+                x = 20;
+                y -= 150;
                 spriteObj.transform.localPosition = new Vector3(x, y, 1); //Camera.main.ScreenToWorldPoint
             }
             x += 100; 
@@ -72,7 +76,7 @@ public class playerInventory : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (transform.childCount > 0)
         {
-            for (int i = 0; i < transform.childCount; i++)
+            for (int i = 1; i < transform.childCount; i++)
             {
                 Destroy(transform.GetChild(i).gameObject);
             }
@@ -81,19 +85,5 @@ public class playerInventory : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        //hoverDescriptionManager.onHover("Damage: "+gameManager.gmInstance.inventory[0].GetComponent<weapon>().damage.ToString(), Input.mousePosition);
-        hoverDescriptionManager.onHover("Damage: ", Input.mousePosition);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        hoverDescriptionManager.onLeave();
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("click");
-    }
+    
 }

@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class hoverDescription : MonoBehaviour
+public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public int invId;
+    public string description;
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        //hoverDescriptionManager.onHover("Damage: "+gameManager.gmInstance.inventory[0].GetComponent<weapon>().damage.ToString(), Input.mousePosition);
+        hoverDescriptionManager.onHover("id: "+invId.ToString(), Input.mousePosition);
+        Debug.Log("enter");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        
+        hoverDescriptionManager.onLeave();
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("click");
+    }
+
+    
 }
