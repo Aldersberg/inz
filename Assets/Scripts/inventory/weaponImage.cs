@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class weaponImage : MonoBehaviour
 {
-    Image[] image;
     public GameObject weaponObj;
+    Image[] image;
     SpriteRenderer[] weaponSprite;
 
     protected virtual void Awake()
