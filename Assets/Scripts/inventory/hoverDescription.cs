@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,9 +12,16 @@ public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public string description;
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //Debug.Log(gameManager.gmInstance.inventory[invId].name);
+        String name = gameManager.gmInstance.inventory[invId].name.Substring(0, 6);
+        if (name == "weapon")
+        {
+            description += "Damage: "+gameManager.gmInstance.inventory[invId].GetComponent<weapon>().damage + "\n";
+        }
         //hoverDescriptionManager.onHover("Damage: "+gameManager.gmInstance.inventory[0].GetComponent<weapon>().damage.ToString(), Input.mousePosition);
-        hoverDescriptionManager.onHover("id: "+invId.ToString(), Input.mousePosition);
-        Debug.Log("enter");
+        hoverDescriptionManager.onHover(description, Input.mousePosition);
+        description = "";
+        //Debug.Log(eventData.pointerEnter);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -21,7 +31,25 @@ public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("click");
+        if(eventData.button.ToString()== "Left")
+        {
+            //Debug.Log(eventData.pointerPress);
+            gameManager.gmInstance.inventory.RemoveAt(eventData.pointerPress.GetComponent<hoverDescription>().invId);
+            gameManager.gmInstance.SaveState();
+            playerInventory tmp = transform.GetComponentInParent<playerInventory>();
+            tmp.refreshInventoryObjects();
+        }
+        if (eventData.button.ToString() == "Middle")
+        {
+            //Debug.Log(eventData.pointerPress);
+            gameManager.gmInstance.inventory.Clear();
+            gameManager.gmInstance.SaveState();
+            playerInventory tmp = transform.GetComponentInParent<playerInventory>();
+            tmp.refreshInventoryObjects();
+        }
+        //Debug.Log(eventData.button);
+        //else if(Input.GetMouseButton(1))
+        //    Debug.Log("rightclick");
     }
 
     

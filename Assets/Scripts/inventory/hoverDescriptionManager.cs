@@ -46,7 +46,6 @@ public class hoverDescriptionManager : MonoBehaviour
 
     void hideDesc()
     {
-        descWindow.SetAsFirstSibling();
         descWindow.gameObject.SetActive(false);
     }
 

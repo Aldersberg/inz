@@ -88,7 +88,7 @@ public class gameManager : MonoBehaviour
             for (int i = 2; i < saveData.Length - 3; i += 3)
             {
                 string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`') + 1);
-                //Debug.Log(tmpName);
+                Debug.Log(saveData[i]);
                 GameObject tmpWeapon = (GameObject)Resources.Load("Prefabs/" + tmpName);
                 tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
                 tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 1]);

@@ -8,7 +8,7 @@ public class weapon : Collision
     public float damage = 1.0f;
     public float knockback = 1.0f;
 
-    
+    public GameObject go;
     private SpriteRenderer spriteRenderer;
 
     private float cooldown = 0.5f;
@@ -86,7 +86,14 @@ public class weapon : Collision
         gameManager.gmInstance.inventory.Add(gameObject);
         gameManager.gmInstance.SaveState();
 
+        string[] saveData = PlayerPrefs.GetString("saveState").Split('|');
+        gameManager.gmInstance.inventory.Clear();
+        gameManager.gmInstance.loadInventory(saveData);
+
+        //playerInventory tmp = inventoryRef.GetComponent<playerInventory>();
+        //tmp.refreshInventoryObjects();
         Destroy(gameObject);
+        
     }
     private void swing()
     {

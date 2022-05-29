@@ -15,7 +15,8 @@ public class playerInventory : MonoBehaviour
         
     }
     public void onWeaponChange(GameObject weapon)
-    {   //set player weapon sprite to this one
+    {   
+        //set player weapon sprite to this one
         GameObject currentWeapon = GameObject.Find(pName).transform.GetChild(0).gameObject;
         gameManager.gmInstance.inventory.Add(currentWeapon);
         currentWeapon.GetComponent<SpriteRenderer>().sprite = weapon.GetComponent<SpriteRenderer>().sprite;
@@ -31,7 +32,8 @@ public class playerInventory : MonoBehaviour
  
         gameManager.gmInstance.SaveState();
     }
-    private void OnEnable()
+    
+    public void loadIventoryObjects()
     {
         string[] saveData = PlayerPrefs.GetString("saveState").Split('|');
         gameManager.gmInstance.inventory.Clear();
@@ -39,11 +41,11 @@ public class playerInventory : MonoBehaviour
         Image[] image;
         float x = 20;
         float offsetY = 388;
-        float y = -32+offsetY;
+        float y = -32 + offsetY;
         int i = 0;
-        foreach(GameObject go in gameManager.gmInstance.inventory)
+        foreach (GameObject go in gameManager.gmInstance.inventory)
         {
-            
+
             GameObject spriteObj = (GameObject)Instantiate(Resources.Load("Prefabs/inventoryItemSpriteWB"));
             spriteObj.transform.SetParent(transform);
             spriteObj.gameObject.SetActive(true);
@@ -52,9 +54,9 @@ public class playerInventory : MonoBehaviour
 
             image = spriteObj.GetComponentsInChildren<Image>(true);
             //Debug.Log(image.Length);
-            image[image.Length-2].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[0].sprite;
-            image[image.Length-1].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[1].sprite;
-            
+            image[image.Length - 2].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[0].sprite;
+            image[image.Length - 1].sprite = gameManager.gmInstance.inventory[i].GetComponentsInChildren<SpriteRenderer>()[1].sprite;
+
             spriteObj.GetComponent<hoverDescription>().invId = i;
             //spriteObj.GetComponent<hoverDescription>().description = i;
             //tmp[0].transform.position = Vector3.zero ;
@@ -71,20 +73,37 @@ public class playerInventory : MonoBehaviour
                 y -= 150;
                 spriteObj.transform.localPosition = new Vector3(x, y, 1); //Camera.main.ScreenToWorldPoint
             }
-            x += 100; 
+            x += 100;
             i++;
             //tmp[1].transform.position = tmp[0].transform.position + new Vector3(32, 32, 1);
         }
     }
-    private void OnDisable()
+
+    void destroyInventoryObjects()
     {
         if (transform.childCount > 0)
         {
-            for (int i = 1; i < transform.childCount; i++)
+            for (int i = 0; i < transform.childCount; i++)
             {
-                Destroy(transform.GetChild(i).gameObject);
+                if(transform.GetChild(i).name!="DescriptionWindow")
+                    Destroy(transform.GetChild(i).gameObject);
             }
         }
+    }
+    public void refreshInventoryObjects()
+    {
+        destroyInventoryObjects();
+        loadIventoryObjects();
+
+    }
+    private void OnEnable()
+    {
+        loadIventoryObjects();
+    }
+
+    private void OnDisable()
+    {
+        destroyInventoryObjects();
     }
 
 
