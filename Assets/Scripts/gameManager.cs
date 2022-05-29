@@ -67,18 +67,9 @@ public class gameManager : MonoBehaviour
         string[] saveData = PlayerPrefs.GetString("saveState").Split('|');
         gold = int.Parse(saveData[0]);
         exp = int.Parse(saveData[1]);
+        loadInventory(saveData);
 
-        if (saveData.Length > 2) { 
-            for (int i = 2; i < saveData.Length-3; i+=3)
-            {
-                string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`')+1);
-                //Debug.Log(tmpName);
-                GameObject tmpWeapon = (GameObject)Resources.Load("Prefabs/"+tmpName);
-                tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
-                tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 1]);
-                inventory.Add(tmpWeapon);
-            }
-        }
+
         Debug.Log("loaded");
         player.transform.position = GameObject.Find("spawnPoint").transform.position;
         player.updateHp();
@@ -89,6 +80,21 @@ public class gameManager : MonoBehaviour
         //    }
         //}
         
+    }
+    public void loadInventory(string[] saveData)
+    {
+        if (saveData.Length > 2)
+        {
+            for (int i = 2; i < saveData.Length - 3; i += 3)
+            {
+                string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`') + 1);
+                //Debug.Log(tmpName);
+                GameObject tmpWeapon = (GameObject)Resources.Load("Prefabs/" + tmpName);
+                tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
+                tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 1]);
+                inventory.Add(tmpWeapon);
+            }
+        }
     }
     public floatingTextManager floatingTextManager;
     public void showText(string text, int fontSize, Color txtColor, Vector3 position, Vector3 motion, float duration, bool shading)

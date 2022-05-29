@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class playerInventory : MonoBehaviour
 {
     string pName;
-    Image[] image;
+    
     SpriteRenderer[] weaponSprite;
     private void Start()
     {   
@@ -32,7 +32,11 @@ public class playerInventory : MonoBehaviour
         gameManager.gmInstance.SaveState();
     }
     private void OnEnable()
-    { 
+    {
+        string[] saveData = PlayerPrefs.GetString("saveState").Split('|');
+        gameManager.gmInstance.inventory.Clear();
+        gameManager.gmInstance.loadInventory(saveData);
+        Image[] image;
         float x = 20;
         float offsetY = 388;
         float y = -32+offsetY;

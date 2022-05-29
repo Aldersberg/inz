@@ -86,7 +86,7 @@ public class weapon : Collision
         gameManager.gmInstance.inventory.Add(gameObject);
         gameManager.gmInstance.SaveState();
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
     private void swing()
     {
