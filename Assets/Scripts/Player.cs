@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Player : Move
 {
-    
+    public int strength;
+    public int vitalty;
+    public int speed;
     protected override void Start()
     {
         base.Start();
         updateHp();
-
+        updateSpeed();
     }
     private void Update()
     {
@@ -25,7 +27,18 @@ public class Player : Move
 
 
     }
+    public void updateStr()
+    {
 
+    }
+    public void updateVit()
+    {
+        maxHp += vitalty;
+    }
+    public void updateSpeed()
+    {
+        ySpeed += speed*0.1f;
+    }
     public void updateHp()
     {
         if (hp < 0)

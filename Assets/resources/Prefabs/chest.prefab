@@ -138,6 +138,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  boxCollider: {fileID: 0}
   collected: {fileID: -150518975, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
   weaponDrops:
   - {fileID: 1341315101, guid: cd744aeaaca759540b54cf65da096e6e, type: 3}
@@ -183,4 +184,4 @@ MonoBehaviour:
   hpPotionPrefab: {fileID: 6969636777415176779, guid: cba55088027b9f142918539363a6ea0f, type: 3}
   speedPotionPrefab: {fileID: 3941741580332696383, guid: 5d120d76927e02a4f9dd1884354e9bf3, type: 3}
   pfweaponDrops:
-  - {fileID: 7149388324713582539, guid: 8598d1309495d3d4cb2628059e9eb118, type: 3}
+  - {fileID: 1292205694729105714, guid: 87460117dca797b4e8b204ef3c92dbe6, type: 3}

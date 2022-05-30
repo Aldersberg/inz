@@ -23,9 +23,10 @@ public class gameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
-        Debug.Log("awake");
+
+        //PlayerPrefs.DeleteAll();
         gmInstance = this;
+        Debug.Log("awake");
         SceneManager.sceneLoaded += LoadState;
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(player);
@@ -49,11 +50,13 @@ public class gameManager : MonoBehaviour
         }
         save += gold.ToString() + "|";
         save += exp.ToString()+"|";
-        foreach(GameObject go in tmpInv)
-        {
-            save += go.name + "|";
-            save += go.GetComponent<weapon>().damage.ToString() + "|";
-            save += go.GetComponent<weapon>().knockback.ToString() + "|";
+        if (tmpInv.Count > 0) { 
+            foreach(GameObject go in tmpInv)
+            {
+                save += go.name + "|";
+                save += go.GetComponent<weapon>().damage.ToString() + "|";
+                save += go.GetComponent<weapon>().knockback.ToString() + "|";
+            }
         }
         //gold,exp|prefab name, damage, knockback
         PlayerPrefs.SetString("saveState", save);
@@ -63,10 +66,18 @@ public class gameManager : MonoBehaviour
     public void LoadState(Scene s, LoadSceneMode lsm)
     {
         if (!PlayerPrefs.HasKey("saveState"))
+        {
+            player.transform.position = GameObject.Find("spawnPoint").transform.position;
             return;
+        }
+            
         string[] saveData = PlayerPrefs.GetString("saveState").Split('|');
         gold = int.Parse(saveData[0]);
         exp = int.Parse(saveData[1]);
+        //foreach(string sss in saveData)
+        //{
+        //    Debug.Log(this+": "+sss);
+        //}
         loadInventory(saveData);
 
 
@@ -88,10 +99,10 @@ public class gameManager : MonoBehaviour
             for (int i = 2; i < saveData.Length - 3; i += 3)
             {
                 string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`') + 1);
-                Debug.Log(saveData[i]);
+                //Debug.Log(saveData[i]);
                 GameObject tmpWeapon = (GameObject)Resources.Load("Prefabs/" + tmpName);
                 tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
-                tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 1]);
+                tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 2]);
                 inventory.Add(tmpWeapon);
             }
         }

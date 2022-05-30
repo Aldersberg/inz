@@ -26,6 +26,7 @@ public class Move : Warrior
 
     protected virtual void updateMovement(Vector3 input)
     {
+        xSpeed = ySpeed;
         moveVector = new Vector3(input.x * xSpeed, input.y * ySpeed, 0);
 
         if (moveVector.x > 0)
