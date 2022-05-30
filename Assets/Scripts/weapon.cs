@@ -79,7 +79,7 @@ public class weapon : Collision
         currentWeapon1.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
         //transfer weapon stats
-        currentWeapon.GetComponent<weapon>().damage = this.damage;
+        currentWeapon.GetComponent<weapon>().damage = this.damage + currentWeapon.GetComponentInParent<Player>().strength;
         currentWeapon.GetComponent<weapon>().knockback = this.knockback;
         currentWeapon.GetComponent<weapon>().boxCollider = this.boxCollider;
         

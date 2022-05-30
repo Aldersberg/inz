@@ -29,11 +29,12 @@ public class Player : Move
     }
     public void updateStr()
     {
-
+        GetComponentInChildren<weapon>().damage += strength;
     }
     public void updateVit()
     {
         maxHp += vitalty;
+        updateHp();
     }
     public void updateSpeed()
     {

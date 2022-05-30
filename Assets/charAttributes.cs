@@ -13,12 +13,39 @@ public class charAttributes : MonoBehaviour
         player = gameManager.gmInstance.player;
         attributes = GetComponentsInChildren<Text>();
         buttons = GetComponentsInChildren<Button>();
+        setStrengthTxt();
+        setVitalityTxt();
         setSpeedTxt();
-        buttons[0].onClick.AddListener(addSpeed); 
+        buttons[0].onClick.AddListener(addStrength);
+        buttons[1].onClick.AddListener(addVitality);
+        buttons[2].onClick.AddListener(addSpeed);
+    }
+    
+    void setStrengthTxt()
+    {
+        attributes[0].text = "Strength: " + player.strength.ToString();
+    }
+    void addStrength()
+    {
+
+        player.strength += 1;
+        setStrengthTxt();
+        player.updateStr();
+    }
+    void setVitalityTxt()
+    {
+        attributes[1].text = "Vitality: " + player.vitalty.ToString();
+    }
+    void addVitality()
+    {
+
+        player.vitalty += 1;
+        setVitalityTxt();
+        player.updateVit();
     }
     void setSpeedTxt()
     {
-        attributes[0].text = "Speed: " + player.speed.ToString();
+        attributes[2].text = "Speed: " + player.speed.ToString();
     }
     void addSpeed()
     {
