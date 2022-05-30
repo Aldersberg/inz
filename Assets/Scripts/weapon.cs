@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class weapon : Collision
@@ -73,15 +74,15 @@ public class weapon : Collision
     }
     private void onPickup()
     {   //set player weapon sprite to this one
-        GameObject currentWeapon = GameObject.Find(pName).transform.GetChild(0).gameObject;
-        currentWeapon.GetComponent<SpriteRenderer>().sprite = this.spriteRenderer.sprite;
-        GameObject currentWeapon1 = currentWeapon.transform.GetChild(0).gameObject;
-        currentWeapon1.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
-
-        //transfer weapon stats
-        currentWeapon.GetComponent<weapon>().damage = this.damage + currentWeapon.GetComponentInParent<Player>().strength;
-        currentWeapon.GetComponent<weapon>().knockback = this.knockback;
-        currentWeapon.GetComponent<weapon>().boxCollider = this.boxCollider;
+        //GameObject currentWeapon = GameObject.Find(pName).transform.GetChild(0).gameObject;
+        //currentWeapon.GetComponent<SpriteRenderer>().sprite = this.spriteRenderer.sprite;
+        //GameObject currentWeapon1 = currentWeapon.transform.GetChild(0).gameObject;
+        //currentWeapon1.GetComponent<SpriteRenderer>().sprite = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
+        //
+        ////transfer weapon stats
+        //currentWeapon.GetComponent<weapon>().damage = this.damage + currentWeapon.GetComponentInParent<Player>().strength;
+        //currentWeapon.GetComponent<weapon>().knockback = this.knockback;
+        //currentWeapon.GetComponent<weapon>().boxCollider = this.boxCollider;
         
         gameManager.gmInstance.inventory.Add(gameObject);
         gameManager.gmInstance.SaveState();

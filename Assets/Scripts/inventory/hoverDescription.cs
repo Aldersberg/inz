@@ -34,10 +34,12 @@ public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if(eventData.button.ToString()== "Left")
         {
             //Debug.Log(eventData.pointerPress);
-            gameManager.gmInstance.inventory.RemoveAt(eventData.pointerPress.GetComponent<hoverDescription>().invId);
-            gameManager.gmInstance.SaveState();
+            //gameManager.gmInstance.inventory.RemoveAt(eventData.pointerPress.GetComponent<hoverDescription>().invId);
+            //gameManager.gmInstance.SaveState();
+
             playerInventory tmp = transform.GetComponentInParent<playerInventory>();
-            tmp.refreshInventoryObjects();
+            tmp.onWeaponChange(gameManager.gmInstance.inventory.ElementAt(eventData.pointerPress.GetComponent<hoverDescription>().invId));
+            //tmp.refreshInventoryObjects();
         }
         if (eventData.button.ToString() == "Middle")
         {
