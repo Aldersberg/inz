@@ -45,6 +45,9 @@ TagManager:
   - name: Floor
     uniqueID: 2994842717
     locked: 0
+  - name: Misc.
+    uniqueID: 3585879057
+    locked: 0
   - name: Weapon
     uniqueID: 687709113
     locked: 0

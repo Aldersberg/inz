@@ -65,9 +65,10 @@ public class gameManager : MonoBehaviour
     }
     public void LoadState(Scene s, LoadSceneMode lsm)
     {
+        player.transform.position = GameObject.Find("spawnPoint").transform.position;
         if (!PlayerPrefs.HasKey("saveState"))
         {
-            player.transform.position = GameObject.Find("spawnPoint").transform.position;
+            
             return;
         }
             
@@ -80,9 +81,7 @@ public class gameManager : MonoBehaviour
         //}
         loadInventory(saveData);
 
-
         Debug.Log("loaded");
-        player.transform.position = GameObject.Find("spawnPoint").transform.position;
         player.updateHp();
         //if (playerInventory.inventory.Count > 0) {
         //    foreach (GameObject a in playerInventory.inventory)

@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6a907c615a6f3429b72b092a0d29c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camPosition: {fileID: 1339977108}
 --- !u!1 &886494394
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +648,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  boxCollider: {fileID: 0}
   sceneName: SampleScene
 --- !u!4 &1028749051
 Transform:
@@ -691,11 +691,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21104532, y: 0.16014493}
   m_EdgeRadius: 0
---- !u!4 &1339977108 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6460305182814769497, guid: 91d99d1801121164583f9f464d75afbf, type: 3}
-  m_PrefabInstance: {fileID: 1518790521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1518790521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -750,6 +745,10 @@ PrefabInstance:
     - target: {fileID: 6460305182814769503, guid: 91d99d1801121164583f9f464d75afbf, type: 3}
       propertyPath: m_Name
       value: wizard_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460305182814769503, guid: 91d99d1801121164583f9f464d75afbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d99d1801121164583f9f464d75afbf, type: 3}

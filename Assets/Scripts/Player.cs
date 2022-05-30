@@ -7,6 +7,7 @@ public class Player : Move
     public int strength;
     public int vitalty;
     public int speed;
+    public int skillThrow;
     protected override void Start()
     {
         base.Start();

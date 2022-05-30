@@ -49,6 +49,14 @@ public class weapon : Collision
                 swing();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Q) && parentName == pName)
+        {
+            if (Time.time - lastAttack > cooldown)
+            {
+                lastAttack = Time.time;
+                throwWeapon();
+            }
+        }
     }
 
     protected override void onCollision(Collider2D coll)
@@ -59,7 +67,6 @@ public class weapon : Collision
            {
                 onPickup();
                 return;
-                //weapon w1 = GameObject.Find(pName).transform.GetChild(0).gameObject;
             } 
         }
         //hit only damagable but not user
@@ -99,5 +106,9 @@ public class weapon : Collision
     private void swing()
     {
         animator.SetTrigger("Swing");
+    }
+    private void throwWeapon()
+    {
+        animator.SetTrigger("Throw");
     }
 }
