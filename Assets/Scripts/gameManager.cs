@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
     public Player player;
     public string playerName;
     public List<GameObject> inventory;
+    GameObject invTransform;
     private void Awake()
     {
         
@@ -25,9 +26,11 @@ public class gameManager : MonoBehaviour
         }
 
         //PlayerPrefs.DeleteAll();
+        invTransform = GameObject.Find("Inventory");
         gmInstance = this;
         Debug.Log("awake");
         SceneManager.sceneLoaded += LoadState;
+        DontDestroyOnLoad(invTransform);
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(player);
         DontDestroyOnLoad(floatingTextManager);
@@ -93,16 +96,27 @@ public class gameManager : MonoBehaviour
     }
     public void loadInventory(string[] saveData)
     {
+        
+        if (invTransform.transform.childCount > 0)
+        {
+            for (int i = 0; i < invTransform.transform.childCount; i++)
+            {
+                
+                    Destroy(invTransform.transform.GetChild(i).gameObject);
+            }
+        }
         if (saveData.Length > 2)
         {
             for (int i = 2; i < saveData.Length - 3; i += 3)
             {
                 string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`') + 1);
                 //Debug.Log(saveData[i]);
-                GameObject tmpWeapon = (GameObject)Resources.Load("Prefabs/" + tmpName);
+                GameObject tmpWeapon = (GameObject)Instantiate(Resources.Load("Prefabs/" + tmpName));
                 tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
                 tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 2]);
+                tmpWeapon.transform.parent = invTransform.transform;
                 inventory.Add(tmpWeapon);
+                tmpWeapon.SetActive(false);
             }
         }
     }

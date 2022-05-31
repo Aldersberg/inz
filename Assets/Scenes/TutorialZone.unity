@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42016391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42016392}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42016392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42016391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5255713, y: 0.66406894, z: -0.0062999935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &187168358 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 514260136073787568, guid: fa19b06c283593046bb7806cf989b19e, type: 3}
@@ -15723,10 +15754,6 @@ PrefabInstance:
     - target: {fileID: 1292205694729105705, guid: 87460117dca797b4e8b204ef3c92dbe6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292205694729105711, guid: 87460117dca797b4e8b204ef3c92dbe6, type: 3}
-      propertyPath: damage
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1292205694729105714, guid: 87460117dca797b4e8b204ef3c92dbe6, type: 3}
       propertyPath: m_Name
