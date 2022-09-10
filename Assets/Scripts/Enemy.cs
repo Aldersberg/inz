@@ -29,6 +29,7 @@ public class Enemy : Move
         xSpeed = 0.3f;
         ySpeed = xSpeed;
         pName = gameManager.gmInstance.playerName;
+        RandomizeEnemyToughness();
         base.Start();
         
     }
@@ -70,5 +71,14 @@ public class Enemy : Move
         //gameManager.gmInstance.exp += xpGrantedOnKill;
         gameManager.gmInstance.showText("+"+xpGrantedOnKill+" xp", 23, Color.blue, transform.position, Vector3.up * 5, 0.5f, true);
     }
+    private void RandomizeEnemyToughness()
+    {
+        int rarity = Random.Range(1, 4);
+        xpGrantedOnKill*=rarity;
 
+        hp*=rarity;
+        maxHp=hp;
+
+        GetComponent<enemyWeapon>().damage *= rarity;
+    }
 }

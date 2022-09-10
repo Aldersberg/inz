@@ -66,10 +66,12 @@ public class Player : Move
         if(level<=0)
             level=1;
 
-        if (experience >= level * 10)
+        if (experience >= (level * 10))
         {
-            experience -= level * 10;
+            experience -= (level * 10);
             level+=1;
+            Debug.Log("checked lvlup");
+            checkLvlUp();
         }
     }
 }
