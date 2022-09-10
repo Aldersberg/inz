@@ -17,16 +17,16 @@ public class hpPotion : Collision
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
         //visibility on the floor
-        spriteRenderer.sortingLayerName = "Floor";
+        spriteRenderer.sortingLayerName = "Misc.";
         spriteRenderer.sortingOrder = 1;
         Debug.Log("in start hppot");
         size = Random.Range(0, 2);
         
         spriteRenderer.sprite = sizes[size];
         if (size == 0)
-            hpRecovery = 5;
+            hpRecovery = 15;
         else
-            hpRecovery = 10;
+            hpRecovery = 30;
     }
     public void setup()
     {
@@ -41,10 +41,10 @@ public class hpPotion : Collision
     protected override void onCollision(Collider2D coll)
     {
         if(coll.name == pName)
-        {
-            gameManager.gmInstance.player.hp += hpRecovery;
+        {   float hpRecovered = gameManager.gmInstance.player.maxHp * hpRecovery/100;
+            gameManager.gmInstance.player.hp += hpRecovered;
             gameManager.gmInstance.player.updateHp();
-            gameManager.gmInstance.showText("+" + hpRecovery, 22, Color.green, transform.position, Vector3.up * 10, 0.3f, true);
+            gameManager.gmInstance.showText("+" + hpRecovered, 22, Color.green, coll.transform.position, Vector3.up * 10, 0.3f, true);
             Destroy(gameObject);
         }
     }

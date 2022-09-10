@@ -7,6 +7,8 @@ public class Player : Move
     public int strength;
     public int vitalty;
     public int speed;
+    public int experience=0;
+    public int level=1;
     public int skillThrow;
     protected override void Start()
     {
@@ -48,5 +50,26 @@ public class Player : Move
         if (hp > maxHp)
             hp = maxHp;
         healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
+    }
+    //public void initExp()
+    //{
+    //    expBar.xpBar.updateExpBar(experience, level);
+    //}
+    public void addExperience(int expToAdd)
+    {
+        experience += expToAdd;
+        checkLvlUp();
+        //expBar.xpBar.updateExpBar(experience,level);
+    }
+    private void checkLvlUp()
+    {
+        if(level<=0)
+            level=1;
+
+        if (experience >= level * 10)
+        {
+            experience -= level * 10;
+            level+=1;
+        }
     }
 }

@@ -66,7 +66,8 @@ public class Enemy : Move
     protected override void death()
     {
         Destroy(gameObject);
-        gameManager.gmInstance.exp += xpGrantedOnKill;
+        gameManager.gmInstance.player.addExperience(xpGrantedOnKill);
+        //gameManager.gmInstance.exp += xpGrantedOnKill;
         gameManager.gmInstance.showText("+"+xpGrantedOnKill+" xp", 23, Color.blue, transform.position, Vector3.up * 5, 0.5f, true);
     }
 

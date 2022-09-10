@@ -12,7 +12,9 @@ public class playerInventory : MonoBehaviour
     private void Start()
     {   
         pName = gameManager.gmInstance.playerName;
-        
+
+        //gameManager.gmInstance.player.initExp();
+
     }
     public void onWeaponChange(GameObject weapon)
     {   
