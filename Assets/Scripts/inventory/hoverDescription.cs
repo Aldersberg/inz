@@ -41,6 +41,14 @@ public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
             tmp.onWeaponChange(gameManager.gmInstance.inventory.ElementAt(eventData.pointerPress.GetComponent<hoverDescription>().invId));
             //tmp.refreshInventoryObjects();
         }
+        if (eventData.button.ToString() == "Right")
+        {
+            
+            weaponUpgradeWindow tmp1 = transform.parent.parent.GetComponentInChildren<weaponUpgradeWindow>(true);
+            //Debug.Log(tmp1);
+            tmp1.showWeapon(gameManager.gmInstance.inventory.ElementAt(eventData.pointerPress.GetComponent<hoverDescription>().invId));
+            
+        }
         if (eventData.button.ToString() == "Middle")
         {
             //Debug.Log(eventData.pointerPress);
