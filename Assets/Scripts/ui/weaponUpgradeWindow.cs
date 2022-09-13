@@ -19,22 +19,27 @@ public class weaponUpgradeWindow : MonoBehaviour
         damageTxt = GetComponentsInChildren<TMP_Text>()[0];
         knockbackTxt = GetComponentsInChildren<TMP_Text>()[1];
         upgradeButton = GetComponentInChildren<Button>();
-
+        toggleChildren(false);
 
     }
     private void OnEnable()
     {
         upgradeButton.onClick.AddListener(upgradeWeapon);
     }
+    private void OnDisable()
+    {
+        toggleChildren(false);
+    }
     public void showWeapon(GameObject weaponGO)
     {
-        Debug.Log(image.Length);
+        toggleChildren(true);
+        //Debug.Log(image.Length);
         weapongo = weaponGO;
         weaponSprite = weaponGO.GetComponentsInChildren<SpriteRenderer>();
         //Debug.Log(weaponSprite.Length);
         image[1].sprite = weaponSprite[1].sprite;
         image[2].sprite = weaponSprite[0].sprite;
-        Debug.Log(GetComponentsInChildren<TMP_Text>().Length);
+        //Debug.Log(GetComponentsInChildren<TMP_Text>().Length);
         updateDescriptionStats(weaponGO);
     }
     void updateDescriptionStats(GameObject weaponGO)
@@ -48,5 +53,12 @@ public class weaponUpgradeWindow : MonoBehaviour
         weapongo.GetComponent<weapon>().damage += 100;
         updateDescriptionStats(weapongo);
         gameManager.gmInstance.SaveState();
+    }
+    void toggleChildren(bool state)
+    {
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(state);
+        }
     }
 }

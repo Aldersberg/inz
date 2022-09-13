@@ -15,7 +15,7 @@ public class expBar : MonoBehaviour
         
         int x = gameManager.gmInstance.player.level <= 0 ? 1 : gameManager.gmInstance.player.level;
         transform.localScale = new Vector3(((float)gameManager.gmInstance.player.experience / (x * 10)), 1, 1);
-        Debug.Log(((float)gameManager.gmInstance.player.experience / (x * 10)));
+        //Debug.Log(((float)gameManager.gmInstance.player.experience / (x * 10)));
         expValDisplay.xpValDisp.updateTxt(gameManager.gmInstance.player.experience, x * 10);
     }
     public void updateExpBar(int xp, int level)
