@@ -68,7 +68,9 @@ public class gameManager : MonoBehaviour
     }
     public void LoadState(Scene s, LoadSceneMode lsm)
     {
-        player.transform.position = GameObject.Find("spawnPoint").transform.position;
+        //if (GameObject.Find("spawnPoint") != null)
+            player.transform.position = GameObject.Find("spawnPoint").transform.position;
+
         if (!PlayerPrefs.HasKey("saveState"))
         {
             

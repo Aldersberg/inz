@@ -8,7 +8,7 @@ public class weaponImage : MonoBehaviour
     public GameObject weaponObj;
     Image[] image;
     SpriteRenderer[] weaponSprite;
-
+    //TODO: add currently equiped weapon
     protected virtual void Awake()
     {
         image = transform.GetComponentsInChildren<Image>(true);

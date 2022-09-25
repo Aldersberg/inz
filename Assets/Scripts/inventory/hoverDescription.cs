@@ -39,6 +39,7 @@ public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
             playerInventory tmp = transform.GetComponentInParent<playerInventory>();
             tmp.onWeaponChange(gameManager.gmInstance.inventory.ElementAt(eventData.pointerPress.GetComponent<hoverDescription>().invId));
+            GameObject.Find("CurrentWeapon").GetComponent<currentWeaponInfo>().showWeapon();
             //tmp.refreshInventoryObjects();
         }
         if (eventData.button.ToString() == "Right")

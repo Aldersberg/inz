@@ -104,7 +104,7 @@ public class weapon : Collision
         
     }
     private void swing()
-    {
+    {   
         animator.SetTrigger("Swing");
     }
     private void throwWeapon()

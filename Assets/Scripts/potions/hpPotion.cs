@@ -20,8 +20,12 @@ public class hpPotion : Collision
         spriteRenderer.sortingLayerName = "Misc.";
         spriteRenderer.sortingOrder = 1;
         Debug.Log("in start hppot");
+        RandomizeSize();
+    }
+    void RandomizeSize()
+    {
         size = Random.Range(0, 2);
-        
+
         spriteRenderer.sprite = sizes[size];
         if (size == 0)
             hpRecovery = 15;
