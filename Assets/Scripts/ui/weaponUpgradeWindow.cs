@@ -19,12 +19,13 @@ public class weaponUpgradeWindow : MonoBehaviour
         damageTxt = GetComponentsInChildren<TMP_Text>()[0];
         knockbackTxt = GetComponentsInChildren<TMP_Text>()[1];
         upgradeButton = GetComponentInChildren<Button>();
+        upgradeButton.onClick.AddListener(upgradeWeaponButton);
         toggleChildren(false);
 
     }
     private void OnEnable()
     {
-        upgradeButton.onClick.AddListener(upgradeWeaponButton);
+        
     }
     private void OnDisable()
     {
@@ -50,6 +51,7 @@ public class weaponUpgradeWindow : MonoBehaviour
 
     void upgradeWeaponButton()
     {
+        Debug.Log("upgrade clicked");
         upgradeWeapon(weapongo.GetComponent<weaponGO>().weapon);
         updateDescriptionStats(weapongo);
         gameManager.gmInstance.SaveState();
