@@ -97,7 +97,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7149388324713582539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b65f02ac64621a42a79ea5e8b79372f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2411318c1b2010b46be19798ad3b65df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   filter:
@@ -114,8 +114,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damage: 111
-  knockback: 1
+  boxCollider: {fileID: 0}
 --- !u!61 &7149388324713582549
 BoxCollider2D:
   m_ObjectHideFlags: 0

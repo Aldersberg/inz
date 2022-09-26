@@ -30,8 +30,8 @@ public class currentWeaponInfo : MonoBehaviour
         image[0].sprite = weaponSprite[1].sprite;
         image[1].sprite = weaponSprite[0].sprite;
         //Debug.Log(GetComponentsInChildren<TMP_Text>().Length);
-        damageTxt.text = "Damage: " + weapongo.GetComponent<weapon>().damage.ToString();
-        knockbackTxt.text = "Knockback: " + weapongo.GetComponent<weapon>().knockback.ToString();
+        damageTxt.text = "Damage: " + weapongo.GetComponent<weaponGO>().weapon.damage.ToString();
+        knockbackTxt.text = "Knockback: " + weapongo.GetComponent<weaponGO>().weapon.knockback.ToString();
     }
     private void OnEnable()
     {

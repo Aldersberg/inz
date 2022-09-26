@@ -57,8 +57,8 @@ public class gameManager : MonoBehaviour
             foreach(GameObject go in tmpInv)
             {
                 save += go.name + "|";
-                save += go.GetComponent<weapon>().damage.ToString() + "|";
-                save += go.GetComponent<weapon>().knockback.ToString() + "|";
+                save += go.GetComponent<weaponGO>().weapon.damage.ToString() + "|";
+                save += go.GetComponent<weaponGO>().weapon.knockback.ToString() + "|";
             }
         }
         //gold,exp|prefab name, damage, knockback
@@ -113,12 +113,16 @@ public class gameManager : MonoBehaviour
             {
                 string tmpName = saveData[i].Substring(0, saveData[i].IndexOf('`') + 1);
                 //Debug.Log(saveData[i]);
-                GameObject tmpWeapon = (GameObject)Instantiate(Resources.Load("Prefabs/" + tmpName));
-                tmpWeapon.GetComponent<weapon>().damage = float.Parse(saveData[i + 1]);
-                tmpWeapon.GetComponent<weapon>().knockback = float.Parse(saveData[i + 2]);
+                
+                GameObject tmpWeapon = Instantiate(Resources.Load("Prefabs/" + tmpName)) as GameObject;
+                //Debug.Log(Instantiate(Resources.Load("Prefabs/" + tmpName)));
+                //Debug.Log(tmpWeapon.GetComponent<weaponGO>().damage);
+                tmpWeapon.GetComponent<weaponGO>().weapon = new weapon();
+                tmpWeapon.GetComponent<weaponGO>().weapon.damage = float.Parse(saveData[i + 1]);
+                tmpWeapon.GetComponent<weaponGO>().weapon.knockback = float.Parse(saveData[i + 2]);
                 tmpWeapon.transform.parent = invTransform.transform;
-                inventory.Add(tmpWeapon);
-                tmpWeapon.SetActive(false);
+                inventory.Add(tmpWeapon.gameObject);
+                tmpWeapon.gameObject.SetActive(false);
             }
         }
     }

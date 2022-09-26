@@ -24,7 +24,7 @@ public class weaponUpgradeWindow : MonoBehaviour
     }
     private void OnEnable()
     {
-        upgradeButton.onClick.AddListener(upgradeWeapon);
+        upgradeButton.onClick.AddListener(upgradeWeaponButton);
     }
     private void OnDisable()
     {
@@ -44,15 +44,20 @@ public class weaponUpgradeWindow : MonoBehaviour
     }
     void updateDescriptionStats(GameObject weaponGO)
     {
-        damageTxt.text = "Damage: " + weaponGO.GetComponent<weapon>().damage.ToString();
-        knockbackTxt.text = "Knockback: " + weaponGO.GetComponent<weapon>().knockback.ToString();
+        damageTxt.text = "Damage: " + weaponGO.GetComponent<weaponGO>().weapon.damage.ToString();
+        knockbackTxt.text = "Knockback: " + weaponGO.GetComponent<weaponGO>().weapon.knockback.ToString();
     }
 
-    void upgradeWeapon()
+    void upgradeWeaponButton()
     {
-        weapongo.GetComponent<weapon>().damage += 100;
+        upgradeWeapon(weapongo.GetComponent<weaponGO>().weapon);
         updateDescriptionStats(weapongo);
         gameManager.gmInstance.SaveState();
+    }
+    public void upgradeWeapon(weapon weapon)
+    {
+        weapon.damage += 100;
+        Debug.Log("upgraded");
     }
     void toggleChildren(bool state)
     {

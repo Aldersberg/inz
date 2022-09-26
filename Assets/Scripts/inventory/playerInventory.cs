@@ -26,9 +26,9 @@ public class playerInventory : MonoBehaviour
         currentWeapon1.GetComponent<SpriteRenderer>().sprite = weapon.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
         //transfer weapon stats
-        currentWeapon.GetComponent<weapon>().damage = weapon.GetComponent<weapon>().damage;
-        currentWeapon.GetComponent<weapon>().knockback = weapon.GetComponent<weapon>().knockback;
-        currentWeapon.GetComponent<weapon>().boxCollider = weapon.GetComponent<weapon>().boxCollider;
+        currentWeapon.GetComponent<weaponGO>().weapon.damage = weapon.GetComponent<weaponGO>().weapon.damage;
+        currentWeapon.GetComponent<weaponGO>().weapon.knockback = weapon.GetComponent<weaponGO>().weapon.knockback;
+        currentWeapon.GetComponent<weaponGO>().boxCollider = weapon.GetComponent<weaponGO>().boxCollider;
         //gameManager.gmInstance.inventory.Remove(weapon);
 
  

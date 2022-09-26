@@ -16,7 +16,7 @@ public class hoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
         String name = gameManager.gmInstance.inventory[invId].name.Substring(0, 6);
         if (name == "weapon")
         {
-            description += "Damage: "+gameManager.gmInstance.inventory[invId].GetComponent<weapon>().damage + "\n";
+            description += "Damage: "+gameManager.gmInstance.inventory[invId].GetComponent<weaponGO>().weapon.damage + "\n";
         }
         //hoverDescriptionManager.onHover("Damage: "+gameManager.gmInstance.inventory[0].GetComponent<weapon>().damage.ToString(), Input.mousePosition);
         hoverDescriptionManager.onHover(description, Input.mousePosition);
