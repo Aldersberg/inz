@@ -15,6 +15,7 @@ public class Player : Move
         base.Start();
         updateHp();
         updateSpeed();
+        checkLvlUp();
     }
     private void Update()
     {
@@ -32,7 +33,7 @@ public class Player : Move
     }
     public void updateStr()
     {
-        GetComponentInChildren<weapon>().damage += strength;
+        GetComponentInChildren<weaponGO>().weapon.damage += strength;
     }
     public void updateVit()
     {
@@ -63,8 +64,8 @@ public class Player : Move
     }
     private void checkLvlUp()
     {
-        if(level<=0)
-            level=1;
+        if (level <= 0) { level = 1; }
+            
 
         if (experience >= (level * 10))
         {
@@ -73,5 +74,6 @@ public class Player : Move
             Debug.Log("checked lvlup");
             checkLvlUp();
         }
+
     }
 }

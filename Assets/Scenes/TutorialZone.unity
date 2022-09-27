@@ -1807,6 +1807,11 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &391476551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1525598095, guid: a7657ac3bbaa87349b2522e9e8f29372, type: 3}
+  m_PrefabInstance: {fileID: 2144682210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &419453965
 GameObject:
   m_ObjectHideFlags: 0
@@ -10922,7 +10927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631396913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.122, y: 0.556, z: 0.0036118524}
+  m_LocalPosition: {x: -0.94, y: 0.556, z: 0.0036118524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15987,6 +15992,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1567288734, guid: a7657ac3bbaa87349b2522e9e8f29372, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567288734, guid: a7657ac3bbaa87349b2522e9e8f29372, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567288734, guid: a7657ac3bbaa87349b2522e9e8f29372, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567288736, guid: a7657ac3bbaa87349b2522e9e8f29372, type: 3}
+      propertyPath: expDisplay
+      value: 
+      objectReference: {fileID: 391476551}
     - target: {fileID: 8766733027292513734, guid: a7657ac3bbaa87349b2522e9e8f29372, type: 3}
       propertyPath: m_Pivot.x
       value: 0

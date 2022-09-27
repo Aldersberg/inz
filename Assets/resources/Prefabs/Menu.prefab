@@ -1292,7 +1292,6 @@ GameObject:
   - component: {fileID: 1525598096}
   - component: {fileID: 1525598098}
   - component: {fileID: 1525598097}
-  - component: {fileID: 1525598099}
   m_Layer: 5
   m_Name: CurrentExp
   m_TagString: Untagged
@@ -1358,18 +1357,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1525598099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525598095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33cb16e0fe4fb924aac99069e1350dbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1564220325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fb76921911bca4192551bf34b4b7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expDisplay: {fileID: 0}
 --- !u!1 &1619592314
 GameObject:
   m_ObjectHideFlags: 0
