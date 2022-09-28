@@ -19,12 +19,12 @@ public class hpPotion : Collision
         //visibility on the floor
         spriteRenderer.sortingLayerName = "Misc.";
         spriteRenderer.sortingOrder = 1;
-        Debug.Log("in start hppot");
+        //Debug.Log("in start hppot");
         RandomizeSize();
     }
     void RandomizeSize()
     {
-        size = Random.Range(0, 2);
+        size = Random.Range(0, sizes.Length);
 
         spriteRenderer.sprite = sizes[size];
         if (size == 0)
@@ -34,7 +34,7 @@ public class hpPotion : Collision
     }
     public void setup()
     {
-        go.SetActive(true);
+        //gameObject.SetActive(true);
         //sizes = go.GetComponent<Sprite[]>();
         //
         //
@@ -46,7 +46,7 @@ public class hpPotion : Collision
     {
         if(coll.name == pName)
         {   float hpRecovered = gameManager.gmInstance.player.maxHp * hpRecovery/100;
-            gameManager.gmInstance.player.hp += hpRecovered;
+            gameManager.gmInstance.player.healPlayer(hpRecovered);
             gameManager.gmInstance.player.updateHp();
             gameManager.gmInstance.showText("+" + hpRecovered, 22, Color.green, coll.transform.position, Vector3.up * 10, 0.3f, true);
             Destroy(gameObject);

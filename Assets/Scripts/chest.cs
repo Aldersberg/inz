@@ -41,6 +41,7 @@ public class chest : Collision
     {
         spawnWeapon();
         int item = Random.Range(1, 100);
+        Debug.Log(item);
         if (item > 33)
         {
             spawnHpPot();
@@ -54,20 +55,22 @@ public class chest : Collision
 
     private void spawnHpPot()
     {
-        hpPotion hpPot = new hpPotion();
-        hpPot.go = Instantiate(hpPotionPrefab);
-        hpPot.setup();
-        //one square = 0.16f
-        hpPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
+        Instantiate(hpPotionPrefab, new Vector3(transform.position.x, transform.position.y - 0.2f, 1), Quaternion.identity);
+        //hpPotion hpPot = new hpPotion();
+        ////hpPot.go = Instantiate(hpPotionPrefab);
+        //hpPot.setup();
+        ////one square = 0.16f
+        //hpPot.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
     }
     private void spawnSpeedPot()
     {
-        speedPotion speedPot = new speedPotion();
-        speedPot.go = Instantiate(hpPotionPrefab);
-        speedPot.setup();
-        //one square = 0.16f
-        speedPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
-       
+        Instantiate(hpPotionPrefab, new Vector3(transform.position.x, transform.position.y - 0.2f, 1), Quaternion.identity);
+        //speedPotion speedPot = new speedPotion();
+        //speedPot.go = Instantiate(hpPotionPrefab);
+        //speedPot.setup();
+        ////one square = 0.16f
+        //speedPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
+
     }
     private void spawnWeapon()
     {

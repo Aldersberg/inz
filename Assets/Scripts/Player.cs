@@ -44,13 +44,23 @@ public class Player : Move
     {
         ySpeed += speed*0.1f;
     }
+    public void healPlayer(float healAmnt)
+    {
+        hp+=healAmnt;
+        updateHp();
+    }
     public void updateHp()
     {
         if (hp < 0)
             hp = 0;
         if (hp > maxHp)
             hp = maxHp;
-        healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
+        updateHealthDisplay();
+    }
+    public void updateHealthDisplay()
+    {
+        if(healthBar.hpBar!=null)
+            healthBar.hpBar.updateHealthOnDamage(hp, maxHp);
     }
     //public void initExp()
     //{

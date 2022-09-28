@@ -16,7 +16,7 @@ public class Warrior : MonoBehaviour
         if (Time.time - lastImmune > immuneTime)
         {
             lastImmune = Time.time;
-            hp -= dmg.damageAmount;
+            receiveDamage(dmg.damageAmount);
             knockbackDir = (transform.position - dmg.origin).normalized * dmg.knockback;
 
             gameManager.gmInstance.showText("-"+dmg.damageAmount.ToString(), 25, Color.red, transform.position, Vector3.up * 10, 0.5f, true);
@@ -28,7 +28,10 @@ public class Warrior : MonoBehaviour
             }
         }
     }
-
+    public void receiveDamage(float damageAmount)
+    {
+        hp -= damageAmount;
+    }
     protected virtual void death()
     {
         //Destroy(this);
