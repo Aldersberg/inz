@@ -24,15 +24,13 @@ public class weaponGO : Collision
     {
         base.Start();
         if (weapon == null) {
-            Debug.Log(" "+this+": weapon was null");
+            //Debug.Log(" "+this+": weapon was null");
             weapon = new weapon();
             weapon.damage = 1;
             weapon.knockback = 1;
             weapon.cooldown = 0.5f;
         }
-        damage = weapon.damage;
-        knockback = weapon.knockback;
-        cooldown = weapon.cooldown;
+        setAttackValues();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -49,7 +47,7 @@ public class weaponGO : Collision
             transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
             animator.enabled = false;
         }
-
+        //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
     protected override void Update()
     {
@@ -57,7 +55,7 @@ public class weaponGO : Collision
 
         if (Input.GetMouseButton(0) && parentName == pName)
         {
-            if (Time.time - lastAttack > weapon.cooldown)
+            if (Time.time - lastAttack > cooldown)
             {
                 lastAttack = Time.time;
                 swing();
@@ -65,10 +63,18 @@ public class weaponGO : Collision
         }
         if (Input.GetKeyDown(KeyCode.Q) && parentName == pName)
         {
-            if (Time.time - lastAttack > weapon.cooldown)
+            if (Time.time - lastAttack > cooldown)
             {
                 lastAttack = Time.time;
                 throwWeapon();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E) && parentName == pName)
+        {
+            if (Time.time - lastAttack > cooldown)
+            {
+                lastAttack = Time.time;
+                spinWeapon();
             }
         }
     }
@@ -87,8 +93,8 @@ public class weaponGO : Collision
         if (coll.tag == "Damagable" && coll.name != parentName)
         {
             damage dmg = new damage();
-            dmg.damageAmount = weapon.damage;
-            dmg.knockback = weapon.knockback;
+            dmg.damageAmount = damage;
+            dmg.knockback = knockback;
             dmg.origin = transform.position;
             coll.SendMessage("receiveDamage", dmg);
         }
@@ -117,6 +123,12 @@ public class weaponGO : Collision
         Destroy(gameObject);
 
     }
+    void setAttackValues()
+    {
+        damage = weapon.damage;
+        knockback = weapon.knockback;
+        cooldown = weapon.cooldown;
+    }
     private void swing()
     {
         animator.SetTrigger("Swing");
@@ -124,5 +136,11 @@ public class weaponGO : Collision
     private void throwWeapon()
     {
         animator.SetTrigger("Throw");
+    }
+    private void spinWeapon()
+    {
+        knockback = 1.2f * knockback;
+        animator.SetTrigger("Spin");
+        //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 }

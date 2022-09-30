@@ -20,7 +20,7 @@ public class speedPotion : Collision
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
         //visibility on the floor
-        spriteRenderer.sortingLayerName = "Floor";
+        spriteRenderer.sortingLayerName = "Misc.";
         spriteRenderer.sortingOrder = 1;
 
         size = Random.Range(0, 2);

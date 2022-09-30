@@ -45,7 +45,7 @@ public class chest : Collision
         if (item > 33)
         {
             spawnHpPot();
-
+            spawnSpeedPot();
         }
         
         else
@@ -56,21 +56,10 @@ public class chest : Collision
     private void spawnHpPot()
     {
         Instantiate(hpPotionPrefab, new Vector3(transform.position.x, transform.position.y - 0.2f, 1), Quaternion.identity);
-        //hpPotion hpPot = new hpPotion();
-        ////hpPot.go = Instantiate(hpPotionPrefab);
-        //hpPot.setup();
-        ////one square = 0.16f
-        //hpPot.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
     }
     private void spawnSpeedPot()
     {
-        Instantiate(hpPotionPrefab, new Vector3(transform.position.x, transform.position.y - 0.2f, 1), Quaternion.identity);
-        //speedPotion speedPot = new speedPotion();
-        //speedPot.go = Instantiate(hpPotionPrefab);
-        //speedPot.setup();
-        ////one square = 0.16f
-        //speedPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
-
+        Instantiate(speedPotionPrefab, new Vector3(transform.position.x, transform.position.y - 0.2f, 1), Quaternion.identity);
     }
     private void spawnWeapon()
     {
@@ -81,3 +70,8 @@ public class chest : Collision
         //drop only a sprite and generate the rest in eq?
     }
 }
+//speedPotion speedPot = new speedPotion();
+//speedPot.go = Instantiate(hpPotionPrefab);
+//speedPot.setup();
+////one square = 0.16f
+//speedPot.go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f, 1);
