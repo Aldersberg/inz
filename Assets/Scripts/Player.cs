@@ -34,6 +34,7 @@ public class Player : Move
     public void updateStr()
     {
         GetComponentInChildren<weaponGO>().weapon.damage += strength;
+        GetComponentInChildren<weaponGO>().setAttackValues();
     }
     public void updateVit()
     {

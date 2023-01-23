@@ -17,7 +17,8 @@ public class playerInventory : MonoBehaviour
 
     }
     public void onWeaponChange(GameObject weapon)
-    {   
+    {
+        Debug.Log(this);
         //set player weapon sprite to this one
         GameObject currentWeapon = GameObject.Find(pName).transform.GetChild(0).gameObject;
         //gameManager.gmInstance.inventory.Add(currentWeapon);
@@ -29,9 +30,10 @@ public class playerInventory : MonoBehaviour
         currentWeapon.GetComponent<weaponGO>().weapon.damage = weapon.GetComponent<weaponGO>().weapon.damage;
         currentWeapon.GetComponent<weaponGO>().weapon.knockback = weapon.GetComponent<weaponGO>().weapon.knockback;
         currentWeapon.GetComponent<weaponGO>().boxCollider = weapon.GetComponent<weaponGO>().boxCollider;
+        currentWeapon.GetComponent<weaponGO>().setAttackValues();
         //gameManager.gmInstance.inventory.Remove(weapon);
 
- 
+
         gameManager.gmInstance.SaveState();
     }
     
