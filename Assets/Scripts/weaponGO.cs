@@ -24,7 +24,7 @@ public class weaponGO : Collision
     {
         base.Start();
         if (weapon == null) {
-            Debug.Log(" "+this+": weapon was null");
+            //Debug.Log(" "+this+": weapon was null");
             weapon = new weapon();
             weapon.damage = 1;
             weapon.knockback = 1;
@@ -141,6 +141,7 @@ public class weaponGO : Collision
     {
         knockback = 1.2f * knockback;
         animator.SetTrigger("Spin");
+
         //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 }

@@ -18,7 +18,7 @@ public class playerInventory : MonoBehaviour
     }
     public void onWeaponChange(GameObject weapon)
     {
-        Debug.Log(this);
+        
         //set player weapon sprite to this one
         GameObject currentWeapon = GameObject.Find(pName).transform.GetChild(0).gameObject;
         //gameManager.gmInstance.inventory.Add(currentWeapon);

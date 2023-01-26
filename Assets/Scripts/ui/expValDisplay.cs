@@ -7,12 +7,17 @@ using System;
 public class expValDisplay : MonoBehaviour
 {
     public static expValDisplay xpValDisp;
-    private TMP_Text m_TextComponent;
+    [SerializeField]
+    GameObject LevelTXTGO;
+    private TMP_Text LevelTXT;
+    private TMP_Text xpValues;
     public GameObject expDisplay;
     private void Awake()
     {
         xpValDisp = this;
-        m_TextComponent = GetComponent<TMP_Text>();
+        xpValues = GetComponents<TMP_Text>()[0];
+        LevelTXT = LevelTXTGO.transform.GetComponent<TMP_Text>();
+        Debug.Log(GetComponents<TMP_Text>().Length);
 
     }
     private void OnEnable()
@@ -24,7 +29,8 @@ public class expValDisplay : MonoBehaviour
 
         // m_TextComponent.text = "www";
         Debug.Log(xp+"xp:lvl"+ level);
-        m_TextComponent.text = string.Format("{0}/{1}", xp, level*10);
+        LevelTXT.text = string.Format("Level: {0}", level);
+        xpValues.text = string.Format("{0}/{1}", xp, level*10);
         updateDisplay();
     }
 

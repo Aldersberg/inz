@@ -65,7 +65,7 @@ public class chest : Collision
     {
         GameObject go = Instantiate(pfweaponDrops[0]);
         go.GetComponent<weaponGO>().weapon = new weapon();
-        go.GetComponent<weaponGO>().weapon.damage = Random.Range(1, 13);
+        go.GetComponent<weaponGO>().weapon.damage = Random.Range(1, 133);
         go.transform.position = new Vector3(transform.position.x, transform.position.y + 0.2f, 1);
         //drop only a sprite and generate the rest in eq?
     }
