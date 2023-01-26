@@ -7,13 +7,15 @@ public class arrowGO : Collision
     public float damage;
     float knockback;
     float arrowSpeed=0.01f;
-    public Vector2 destination;
+    public Vector3 destination;
     Vector3 oldpos;
-    
+    Vector3 dir;
+    float range = 1;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        dir = (transform.position - destination).normalized*arrowSpeed;
     }
 
     // Update is called once per frame
@@ -22,11 +24,13 @@ public class arrowGO : Collision
         base.Update();
         oldpos = transform.position;
         //Debug.Log(Vector2.MoveTowards(transform.position, destination, arrowSpeed));
-
-        transform.position = Vector2.MoveTowards(transform.position, destination, arrowSpeed);
-        if(oldpos == transform.position)
+        
+        transform.position -= dir;
+        //transform.position = Vector2.MoveTowards(transform.position, destination+dir, arrowSpeed);
+        if(oldpos == transform.position||Vector3.Distance(transform.parent.position,transform.position)>range)
         {
             gameObject.GetComponent<arrowGO>().enabled = false;
+            transform.parent.GetComponent<bowGO>().disabledArrowsAdd(gameObject);
         }
     }
    protected override void onCollision(Collider2D coll)
