@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class arrowGO : Collision
-{
+{ //test
     public float damage;
     float knockback;
     float arrowSpeed=0.01f;
